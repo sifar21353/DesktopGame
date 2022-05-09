@@ -1,0 +1,70 @@
+function update(self, dt)
+	local logic_x = 0
+	local logic_y = 0
+	local logic_x_bool = 0
+	local logic_y_bool = 0
+	local pos = go.get_position()
+	if pos.x < 160 then
+		logic_x = 0.82
+	else
+		logic_x_bool = 1
+	end
+	if pos.y > 300 then
+		logic_y = -2
+	else
+		logic_y_bool = 1
+	end
+	if logic_x_bool == 1 then
+		if pos.x < 320 then
+			logic_x = 1.2
+		else
+			logic_x_bool = 2
+		end
+	end
+	if logic_y_bool == 1 then
+		if pos.y > 30 then
+			logic_y = -2
+		else
+			logic_y_bool = 2
+		end
+	end
+	if logic_x_bool == 2 then
+		if pos.x < 960 then
+			logic_x = 2
+		else 
+			logic_x_bool = 3
+			logic_y_bool = 3
+		end
+	end
+	if logic_x_bool == 3 then
+		if pos.x < 1120 then
+			logic_x = 1.2
+		else
+			logic_x_bool = 4
+		end
+	end
+	if logic_y_bool == 3 then
+		if pos.y < 300 then
+			logic_y = 2
+		else
+			logic_y_bool = 4
+		end
+	end
+	if logic_x_bool == 4 then
+		if pos.x < 1250 then
+			logic_x = 0.66
+		else
+			logic_x_bool = 0
+		end
+	end
+	if logic_y_bool == 4 then
+		if pos.y < 690 then
+			logic_y = 2
+		else 
+			logic_y_bool = 0
+		end
+	end
+	pos.x = pos.x + logic_x
+	pos.y = pos.y + logic_y
+	go.set_position(pos)
+end

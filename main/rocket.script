@@ -1,0 +1,28 @@
+go.property("dir", vmath.vector3())
+
+function init(self)
+	self.speed = 200
+	self.life = 1
+end
+
+local function explode(self)
+	self.life = 1000
+	self.speed = 0
+	go.delete()
+end
+
+function update(self, dt)
+	local pos = go.get_position()
+	pos = pos + self.dir * self.speed * dt
+	go.set_position(pos)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("animation_done") then
+		go.delete()
+	elseif message_id == hash("collision_response") then
+		explode(self)
+		go.delete(message.other_id)
+	end
+end
+	
