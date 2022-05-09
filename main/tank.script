@@ -1,10 +1,13 @@
 function init(self)
-	function operation(x)
-		return x * x + 4 * x
-	end
+	points_x_y = {}
 end
 
-function update(self, dt)
+for i = -6, 2 do
+	points_x_y.newKey = {i, (i * i + 4 * i)}
+end
+print(points_x_y)
+
+--[[function update(self, dt)
 	local logic_x = 0
 	local logic_y = 0
 	local logic_x_bool = 0
@@ -73,4 +76,4 @@ function update(self, dt)
 	pos.x = pos.x + logic_x
 	pos.y = pos.y + logic_y
 	go.set_position(pos)
-end
+end--]]
