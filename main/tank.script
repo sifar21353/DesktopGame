@@ -1,9 +1,6 @@
 function init(self)
-	function point_generation_y(x)
+	function operation(x)
 		return x * x + 4 * x
-	end
-	function point_generation_x(y)
-		return (y + 6) * 160
 	end
 end
 
