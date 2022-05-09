@@ -5,6 +5,7 @@ function init(self)
 	self.life = 1
 end
 
+-- Exploding Rocket
 local function explode(self)
 	self.life = 1000
 	self.speed = 0
