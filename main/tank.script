@@ -1,12 +1,11 @@
 function init(self)
 	points_x_y = {}
-end
-
-function update(self, dt)
-	for i = -6, 2 do
-		points_x_y.newKey = {i, (i * i + 4 * i)}
+	for v = -6, 2 do
+		points_x_y[v] = (v * v + 4 * v)
 	end
-	print(points_x_y)
+	for i = -6, 2 do
+		print(points_x_y[i])
+	end
 end
 
 --[[function update(self, dt)
