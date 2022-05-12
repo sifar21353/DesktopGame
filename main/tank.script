@@ -1,5 +1,5 @@
 function init(self)
-	y_iteration = 42.35
+	y_iteration = 45
 	points_x_y = {}
 	for v = -5, 2 do
 		points_x_y[v] = (v * v + 4 * v)
@@ -13,16 +13,15 @@ function update(self, dt)
 	local logic_y_bool = 0
 	local pos = go.get_position()
 	if pos.x < 160 then
-		logic_x = 0.41
+		logic_x = 0.46
 	else
 		logic_x_bool = 1
 	end
-	if pos.y > (points_x_y[logic_y_bool-5] * y_iteration) then
+	if pos.y > ((points_x_y[logic_y_bool-5] + 4) * y_iteration) then
 		logic_y = -1
 	else
 		logic_y_bool = 1
 	end
-	print(pos.y)
 	pos.x = pos.x + logic_x
 	pos.y = pos.y + logic_y
 	go.set_position(pos)
