@@ -1,14 +1,12 @@
 function init(self)
+	y_iteration = 42.35
 	points_x_y = {}
 	for v = -5, 2 do
 		points_x_y[v] = (v * v + 4 * v)
 	end
-	for i = -6, 2 do
-		print(points_x_y[i])
-	end
 end
 
---[[function update(self, dt)
+function update(self, dt)
 	local logic_x = 0
 	local logic_y = 0
 	local logic_x_bool = 0
@@ -19,62 +17,13 @@ end
 	else
 		logic_x_bool = 1
 	end
-	if pos.y > (point_generation_y(-5) * 60) then
+	if pos.y > (points_x_y[logic_y_bool-5] * y_iteration) then
 		logic_y = -1
 	else
 		logic_y_bool = 1
 	end
-	if logic_x_bool == 1 then
-		if pos.x < 320 then
-			logic_x = 0.6
-		else
-			logic_x_bool = 2
-		end
-	end
-	if logic_y_bool == 1 then
-		if pos.y > (point_generation_y(-4) * 60 + 30) then
-			logic_y = -1
-		else
-			logic_y_bool = 2
-		end
-	end
-	if logic_x_bool == 2 then
-		if pos.x < 960 then
-			logic_x = 1
-		else 
-			logic_x_bool = 3
-			logic_y_bool = 3
-		end
-	end
-	if logic_x_bool == 3 then
-		if pos.x < 1120 then
-			logic_x = 0.6
-		else
-			logic_x_bool = 4
-		end
-	end
-	if logic_y_bool == 3 then
-		if pos.y < (point_generation_y(1) * 60) then
-			logic_y = 1
-		else
-			logic_y_bool = 4
-		end
-	end
-	if logic_x_bool == 4 then
-		if pos.x < 1250 then
-			logic_x = 0.33
-		else
-			logic_x_bool = 0
-		end
-	end
-	if logic_y_bool == 4 then
-		if pos.y < (point_generation_y(2) * 60 - 30) then
-			logic_y = 1
-		else 
-			logic_y_bool = 0
-		end
-	end
+	print(pos.y)
 	pos.x = pos.x + logic_x
 	pos.y = pos.y + logic_y
 	go.set_position(pos)
-end--]]
+end
