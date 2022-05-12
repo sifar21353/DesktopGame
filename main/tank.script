@@ -1,6 +1,6 @@
 function init(self)
 	points_x_y = {}
-	for v = -6, 2 do
+	for v = -5, 2 do
 		points_x_y[v] = (v * v + 4 * v)
 	end
 	for i = -6, 2 do
