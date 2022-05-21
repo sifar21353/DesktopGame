@@ -50,6 +50,20 @@ function update(self, dt)
 			logic_y_bool = 3
 		end
 	end
+	if logic_x_bool == 3 then
+		if pos.x < 640 then
+			logic_x = 8
+		else
+			logic_x_bool = 4
+		end
+	end
+	if logic_y_bool == 3 then
+		if pos.y > ((points_x_y[logic_y_bool-5] + 4) * y_iteration + 30) then
+			logic_y = -1
+		else
+			logic_y_bool = 4
+		end
+	end
 	pos.x = pos.x + logic_x
 	pos.y = pos.y + logic_y
 	go.set_position(pos)
