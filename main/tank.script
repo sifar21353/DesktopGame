@@ -44,7 +44,7 @@ function update(self, dt)
 		end
 	end
 	if logic_y_bool == 2 then
-		if pos.y > ((points_x_y[logic_y_bool-5] + 4) * y_iteration) then
+		if pos.y > ((points_x_y[logic_y_bool-5] + 4) * y_iteration) and (pos.x < 800.4) then
 			logic_y = -1
 		else
 			logic_y_bool = 3
@@ -76,6 +76,20 @@ function update(self, dt)
 			logic_y = 1
 		else
 			logic_y_bool = 5
+		end
+	end
+	if logic_x_bool == 5 then
+		if pos.x < 960 then
+			logic_x = 1.15
+		else
+			logic_x_bool = 6
+		end
+	end
+	if logic_y_bool == 5 then
+		if pos.y < ((points_x_y[logic_y_bool-5] + 4) * y_iteration) then
+			logic_y = 1
+		else
+			logic_y_bool = 6
 		end
 	end
 	pos.x = pos.x + logic_x
