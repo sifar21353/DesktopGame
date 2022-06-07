@@ -7,8 +7,8 @@ function init(self)
 	-- Point generation
 	difference = math.abs(root1 - root2)
 	window_x = window.get_size()
-	windowx = window_x / 2
-	increment = difference / windowx
+	window_x = window_x / 2
+	increment = difference / window_x
 	points = {}
 	for i = root2, root1, increment do
 		points[i] = (i * i * eq[1] + i * eq[2] + eq[3])
