@@ -1,98 +1,11 @@
 function init(self)
-	y_iteration = 45
-	points_x_y = {}
-	for v = -5, 2 do
-		points_x_y[v] = (v * v + 4 * v)
-	end
+	-- Defining the equation: current set to 1x^2 + 4x + 0
+	eq = {1, 4, 0}
+	-- Finding out the roots of the equation
+	root1 = (-eq[2] + math.sqrt(eq[2] * eq[2] - 4 * eq[1] * eq[3])) / (2 * eq[1])
+	root2 = (-eq[2] - math.sqrt(eq[2] * eq[2] - 4 * eq[1] * eq[3])) / (2 * eq[1])
+	print(root1, root2)
 end
 
 function update(self, dt)
-	local logic_x = 0
-	local logic_y = 0
-	local logic_x_bool = 0
-	local logic_y_bool = 0
-	local pos = go.get_position()
-	if pos.x < 160 then
-		logic_x = 0.46
-	else
-		logic_x_bool = 1
-	end
-	if pos.y > ((points_x_y[logic_y_bool-5] + 4) * y_iteration) then
-		logic_y = -1
-	else
-		logic_y_bool = 1
-	end
-	if logic_x_bool == 1 then
-		if pos.x < 320 then
-			logic_x = 0.7
-		else
-			logic_x_bool = 2
-		end
-	end
-	if logic_y_bool == 1 then
-		if pos.y > ((points_x_y[logic_y_bool-5] + 4) * y_iteration) then
-			logic_y = -1
-		else
-			logic_y_bool = 2
-		end
-	end
-	if logic_x_bool == 2 then
-		if pos.x < 480 then
-			logic_x = 1.2
-		else
-			logic_x_bool = 3
-		end
-	end
-	if logic_y_bool == 2 then
-		if pos.y > ((points_x_y[logic_y_bool-5] + 4) * y_iteration) and (pos.x < 801.14) then
-			logic_y = -1
-		else
-			logic_y_bool = 3
-		end
-	end
-	if logic_x_bool == 3 then
-		if pos.x < 640 then
-			logic_x = 8
-		else
-			logic_x_bool = 4
-		end
-	end
-	if logic_y_bool == 3 then
-		if pos.y > ((points_x_y[logic_y_bool-5] + 4) * y_iteration + 30) and (pos.x < 647.2) then
-			logic_y = -1
-		else
-			logic_y_bool = 4
-		end
-	end
-	if logic_x_bool == 4 then
-		if pos.x < 800 then
-			logic_x = 8.2
-		else
-			logic_x_bool = 5
-		end
-	end
-	if logic_y_bool == 4 then
-		if pos.y < ((points_x_y[logic_y_bool-5] + 4) * y_iteration) then
-			logic_y = 1
-		else
-			logic_y_bool = 5
-		end
-	end
-	if logic_x_bool == 5 then
-		if pos.x < 960 then
-			logic_x = 1.15
-		else
-			logic_x_bool = 6
-		end
-	end
-	if logic_y_bool == 5 then
-		if pos.y < ((points_x_y[logic_y_bool-5] + 4) * y_iteration) then
-			logic_y = 1
-		else
-			logic_y_bool = 6
-		end
-	end
-	pos.x = pos.x + logic_x
-	pos.y = pos.y + logic_y
-	go.set_position(pos)
 end
