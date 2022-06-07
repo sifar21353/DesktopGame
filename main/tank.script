@@ -6,7 +6,9 @@ function init(self)
 	root2 = (-eq[2] - math.sqrt(eq[2] * eq[2] - 4 * eq[1] * eq[3])) / (2 * eq[1])
 	-- Point generation
 	difference = math.abs(root1 - root2)
-	increment = difference / 128
+	window_x = window.get_size()
+	windowx = window_x / 2
+	increment = difference / windowx
 	points = {}
 	for i = root2, root1, increment do
 		points[i] = (i * i * eq[1] + i * eq[2] + eq[3])
