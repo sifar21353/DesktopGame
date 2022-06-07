@@ -4,11 +4,12 @@ function init(self)
 	-- Finding out the roots of the equation
 	root1 = (-eq[2] + math.sqrt(eq[2] * eq[2] - 4 * eq[1] * eq[3])) / (2 * eq[1])
 	root2 = (-eq[2] - math.sqrt(eq[2] * eq[2] - 4 * eq[1] * eq[3])) / (2 * eq[1])
-	-- Point generation
+	-- Setting the right increment
 	difference = math.abs(root1 - root2)
 	window_x = window.get_size() / 2
 	increment = difference / (window_x / 10)
 	points = {}
+	-- Generating points
 	for i = root2, root1, increment do
 		points[i] = (i * i * eq[1] + i * eq[2] + eq[3])
 	end
