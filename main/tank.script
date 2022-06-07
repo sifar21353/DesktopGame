@@ -12,7 +12,7 @@ function init(self)
 	points = {}
 	-- Generating points
 	for i = root2, root1, increment do
-		points[(i + difference) * 32] = (i * i * eq[1] + i * eq[2] + eq[3]) + difference
+		points[(i + difference) * mulitiplier] = (i * i * eq[1] + i * eq[2] + eq[3]) + difference
 	end
 	for k, v in pairs(points) do
 		print(k, v)
