@@ -8,10 +8,14 @@ function init(self)
 	difference = math.abs(root1 - root2)
 	window_x = window.get_size() / 2
 	increment = difference / (window_x / 10)
+	mulitiplier = 1 / increment
 	points = {}
 	-- Generating points
 	for i = root2, root1, increment do
-		points[i] = (i * i * eq[1] + i * eq[2] + eq[3])
+		points[(i + difference) * 32] = (i * i * eq[1] + i * eq[2] + eq[3]) + difference
+	end
+	for k, v in pairs(points) do
+		print(k, v)
 	end
 end
 
