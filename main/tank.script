@@ -14,8 +14,12 @@ function init(self)
 	for i = root2, root1, increment do
 		points[(i + difference) * mulitiplier] = (i * i * eq[1] + i * eq[2] + eq[3]) + difference
 	end
+	adjusting_to_720 = 720 / points[128]
 	for k, v in pairs(points) do
-		print(k, v)
+		points[k] = points[k] * adjusting_to_720
+	end
+	for key, val in pairs(points) do
+		print(key, val)
 	end
 end
 
