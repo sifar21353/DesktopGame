@@ -18,9 +18,6 @@ function init(self)
 	for k, v in pairs(points) do
 		points[k] = points[k] * adjusting_to_720
 	end
-	for key, val in pairs(points) do
-		print(key, val)
-	end
 end
 
 function update(self, dt)
