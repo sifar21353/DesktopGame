@@ -20,7 +20,6 @@ function init(self)
 	for k, v in pairs(points) do
 		points[k] = points[k] * adjusting_to_720
 	end
-	pos_init = go.get_position()
 	for i = 0, window_x / 10, 1 do
 		pos = go.get_position()
 		x_additive = i * 10 - pos.x
@@ -28,7 +27,6 @@ function init(self)
 		y_additive = points[i] - pos.y
 		pos.y = pos.y + y_additive
 		go.set_position(pos)
-		print(pos)
 	end
 end
 
