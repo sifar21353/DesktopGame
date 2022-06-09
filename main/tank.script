@@ -1,6 +1,6 @@
 function init(self)
-	-- Defining the equation: current set to 1x^2 + 4x + 0
-	eq = {1, 9, 0}
+	-- Defining the equation: current set to 2x^2 + 5x + 0
+	eq = {2, 5, 0}
 	-- Finding out the roots of the equation
 	root1 = (-eq[2] + math.sqrt(eq[2] * eq[2] - 4 * eq[1] * eq[3])) / (2 * eq[1])
 	root2 = (-eq[2] - math.sqrt(eq[2] * eq[2] - 4 * eq[1] * eq[3])) / (2 * eq[1])
