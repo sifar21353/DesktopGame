@@ -6,7 +6,9 @@ function init(self)
 	root2 = (-eq[2] - math.sqrt(eq[2] * eq[2] - 4 * eq[1] * eq[3])) / (2 * eq[1])
 	-- Setting the right increment
 	difference = math.abs(((root1 + root2) / 2) * ((root1 + root2) / 2) * eq[1] + ((root1 + root2) / 2) * eq[2] + eq[3])
-	window_x = window.get_size() / 2
+	window_x, window_y = window.get_size()
+	window_x = window_x / 2
+	window_y = window_y / 2
 	increment = (math.abs(root1 - root2)) / (window_x / 10)
 	mulitiplier = 1 / increment
 	points = {}
@@ -14,9 +16,12 @@ function init(self)
 	for i = root2, root1, increment do
 		points[(i + (math.abs(root1 - root2))) * mulitiplier] = (i * i * eq[1] + i * eq[2] + eq[3]) + difference
 	end
-	adjusting_to_720 = 720 / points[128]
+	adjusting_to_720 = window_y / points[(window_x / 10)]
 	for k, v in pairs(points) do
 		points[k] = points[k] * adjusting_to_720
+	end
+	for key, val in pairs(points) do
+		print(key, val)
 	end
 end
 
