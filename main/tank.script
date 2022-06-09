@@ -34,3 +34,4 @@ function update(self, dt)
 		x_value = x_value + 1
 	end
 end
+end
