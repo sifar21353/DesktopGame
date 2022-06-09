@@ -1,6 +1,6 @@
 function init(self)
 	-- Defining the equation: current set to 2x^2 + 5x + 0
-	eq = {2, 5, 0}
+	eq = {1, 9, 0}
 	-- Finding out the roots of the equation
 	root1 = (-eq[2] + math.sqrt(eq[2] * eq[2] - 4 * eq[1] * eq[3])) / (2 * eq[1])
 	root2 = (-eq[2] - math.sqrt(eq[2] * eq[2] - 4 * eq[1] * eq[3])) / (2 * eq[1])
@@ -21,7 +21,7 @@ function init(self)
 		points[(i + (math.abs(root1 - root2))) * mulitiplier] = (i * i * eq[1] + i * eq[2] + eq[3]) + difference
 	end
 	for key, val in pairs(points) do
-		print(key, val)
+		print(key, val * 100)
 	end
 	-- Used for iteration
 	x_value = 0
@@ -31,7 +31,7 @@ end
 function update(self, dt)
 	pos = go.get_position()
 	if x_value < 129 then do
-		go.set_position(vmath.vector3(x_value * 10, points[x_value] * 100, 0))
+		go.set_position(vmath.vector3(x_value * 10, points[x_value] * 100, 1))
 		x_value = x_value + 1
 	end
 end
